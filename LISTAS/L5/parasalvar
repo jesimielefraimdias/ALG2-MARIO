@@ -1,0 +1,34 @@
+/*if(p->ra > pp->ra && pp->proximo == NULL){/*Se for maior que tal nó, e tal
+		                nó para qual está apontando seja NULL, sabemos que será 
+		                
+		                        l->ultimo = p;  
+		                        p->antecessor = pp;
+		                        pp->proximo = p;
+                                        l->quantidade++;
+		                        return;
+		                
+		                }
+		                
+		                else if(p->ra > pp->ra && p->ra < ppp->ra){ /*Como dito acima,
+		                precisamos ter certeza que é maior do que seu antecessor e menor do que seu sucessor.*/
+		                /*
+		                        p->proximo = pp->proximo;/*O p->proximo receberá
+		                        a nova variável que terá de apontar.*/
+		                  /*      p->antecessor = pp;
+		       
+		                        pp->proximo = p;/*E como o "pp->item" é menor, agora ele estará atrás, ou seja, deverá
+		                /*        apontar para o "p".*/                        
+	                       /*         ppp->antecessor = p;
+	                                l->quantidade++; 		                        
+		                        return;/*Já podemos finalizar o loop, dado que a lista é insirida
+		                        ordenadamente, discartando a possibilidade de outros sucessores serem maiores.*/       
+		             /*   }
+		                else if (p->ra == pp->ra || p->ra == ppp->ra ) { //Para não repetir valores na lista. 
+		                        printf("REPETIDO\n");
+		                        free(p);//Se o valor ser repetido, damos free no nó criado.
+		                return; 
+		                }
+		           /*     pp = pp->proximo; /*Feito isso, o "pp" recebe o "p->proximo" para ser feita a nova comparação.*/
+		             //   ppp = ppp->proximo;//E o mesmo com "ppp".      	
+                        //*/*/*/
+                        //}

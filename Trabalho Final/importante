@@ -1,0 +1,43 @@
+//Maneira de compilar
+
+gcc -c funcoes.c -o funcoes.o
+gcc -c cadastroJogador.c -o cadastroJogador.o
+gcc cadastroJogador.o funcoes.o -o prog 
+
+/*Obsv: Já possui alguns arquivos csv salvos para serem importados
+ basta apenas digitar o nome na opção correta no programa.*/
+
+buscarnome.csv
+teste.csv
+
+ /*Obsv: Se quiser testar a integridade dos dados .bin você pode utilizar 
+ a função abaixo para importar, ela não foi inserida na funcoes.c*/
+ 
+int importar_bin(RANKING *r, char nomearq[]){
+
+	
+	      
+        char arq[NOMEARQ_SIZE];//Cria uma string para armazenar o nome arquivo.
+        strcpy(arq,nomearq);//Copia o nome para ela.
+        strcat(arq,".bin");//Recebe o .bin no final.
+	FILE* i_arq = fopen(arq,"rb"); /* Abre o arquivo binário para leitura */
+	Jogador jgd;
+	int ate;
+        
+        
+        if(i_arq){       
+        	fread(&ate, sizeof(int), 1, i_arq);//Escreve o número de registros.
+                
+                for(int i = 0; i < ate; i++){
+        		fread(&jgd, sizeof(Jogador), 1, i_arq);//jgd recebe os dados armazenados
+                        inserir(r,jgd);//e passa para o inserir.
+                }
+                return fclose(i_arq);//Retorna 0 em caso de sucesso.
+        }
+        
+        return 1;//1 para erro.
+}
+
+ 
+
+
